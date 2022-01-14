@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { add, sub } from '@reduxStore/actions/counter';
 import { RootState } from '@reduxStore/reducers';
+import styles from './Home.module.css';
 
 function Home() {
     const dispatch = useDispatch();
@@ -16,6 +17,8 @@ function Home() {
             <button onClick={() => dispatch(sub())}>-1</button>
             <div>{counter}</div>
             <button onClick={() => dispatch(add())}>+1</button>
+            <div className={styles.back}></div>
+            <div className={styles.heart}></div>
         </div>
     );
 }

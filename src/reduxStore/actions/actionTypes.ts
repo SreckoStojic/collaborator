@@ -3,6 +3,9 @@ const actionTypes = {
     SUB: 'SUB',
     OPEN_MODAL: 'OPEN_MODAL',
     CLOSE_MODAL: 'CLOSE_MODAL',
+    ADD_TUTORIAL: 'ADD_TUTORIAL',
+    REMOVE_TUTORIAL: 'REMOVE_TUTORIAL',
+    CLEAR_ALL_TUTORIALS: 'CLEAR_ALL_TUTORIALS',
 };
 
 export default actionTypes;

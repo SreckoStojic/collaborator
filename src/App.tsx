@@ -21,6 +21,7 @@ import Profile from '@pages/Profile';
 import Projects from '@pages/Projects';
 import ErrorPage from '@pages/ErrorPage';
 import ErrorBoundary from '@components/ErrorBoundary';
+import ShowOff from '@pages/ShowOff';
 
 function App() {
     return (
@@ -113,6 +114,7 @@ function App() {
                         <Route path="/testvs" element={<TestVS />} />
                         <Route path="/testbb" element={<TestBB />} />
                         <Route path="/testss" element={<TestSS />} />
+                        <Route path="/showoff" element={<ShowOff />} />
                         <Route path="/timesheet" element={<Timesheet />} />
                         <Route
                             path="/timesheet/:day/:month/:year"

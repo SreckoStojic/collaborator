@@ -43,22 +43,21 @@ const tutorialsSSReducer = (state = initialState, action: any) => {
 export default tutorialsSSReducer;
 
 function addNewTutorial(state: IStateTutorial, tutorial: ITutorial) {
-    const newState = state;
-    tutorial.id = generateRandomNumber();
-    newState.tutorials.push(tutorial);
+    const newState = { ...state };
+    const newTutorial = { ...tutorial, id: generateRandomNumber() };
+    newState.tutorials.push(newTutorial);
     return newState;
 }
 
 function removeTutorial(state: IStateTutorial, id: number) {
-    const newState = state;
-    newState.tutorials = newState.tutorials.filter((val) => val.id !== id);
-    return newState;
+    return {
+        ...state,
+        tutorials: state.tutorials.filter((val) => val.id !== id),
+    };
 }
 
 function clearAllTutorials(state: IStateTutorial) {
-    const newState = state;
-    newState.tutorials = [];
-    return newState;
+    return { ...state, tutorials: [] };
 }
 
 function generateRandomNumber() {

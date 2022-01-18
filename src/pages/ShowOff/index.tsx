@@ -24,17 +24,19 @@ function ShowOff() {
         useInputValidation();
     const [valueLastName, handleChangeLastName, isValidLastName] =
         useInputValidation();
+    console.log(valueFirstName);
+    console.log(valueLastName);
 
     useEffect(() => {
-        const timer = setInterval(() => {
+        const timer = setTimeout(() => {
             setText('I AM ASYNC');
-            changeTextColor(`${styles.orangeText}`, 'orange');
+            changeTextColor(styles.orangeText, 'orange');
         }, 5000);
         return () => clearTimeout(timer);
     }, [text]);
 
     useEffect(() => {
-        const timer = setInterval(() => {
+        const timer = setTimeout(() => {
             setMsgVisible(true);
         }, 1000 * 10);
         return () => clearTimeout(timer);
@@ -42,9 +44,9 @@ function ShowOff() {
 
     useInterval(() => {
         if (color.colorName === 'orange') {
-            changeTextColor(`${styles.whiteText}`, 'white');
+            changeTextColor(styles.whiteText, 'white');
         } else {
-            changeTextColor(`${styles.orangeText}`, 'orange');
+            changeTextColor(styles.orangeText, 'orange');
         }
         setCount((count) => count + 1);
     }, 1000);

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './ShowOff.module.css';
 import { useInterval } from '@pages/ShowOff/useInterval';
+import { useInputValidation } from '@pages/ShowOff/useInputValidation';
 
 function ShowOff() {
     const [text, setText] = useState('');
@@ -18,6 +19,11 @@ function ShowOff() {
             colorName: colorName,
         });
     };
+
+    const [valueFirstName, handleChangeFirstName, isValidFirstName] =
+        useInputValidation();
+    const [valueLastName, handleChangeLastName, isValidLastName] =
+        useInputValidation();
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -42,10 +48,24 @@ function ShowOff() {
         }
         setCount((count) => count + 1);
     }, 1000);
+
     return (
         <div className={styles.main}>
             <div className={color.colorClass}>{text}</div>
             <div className={color.colorClass}>{count}</div>
+            <input
+                className={styles.input}
+                onChange={handleChangeFirstName}
+                placeholder="Enter first name..."
+            />
+            <input
+                className={styles.input}
+                onChange={handleChangeLastName}
+                placeholder="Enter last name..."
+            />
+            {(!isValidFirstName || !isValidLastName) && (
+                <div> Input cannot have #, %, $.</div>
+            )}
             {msgVisible && (
                 <div className={styles.main}>
                     <div> ARE YOU ASLEEP?</div>

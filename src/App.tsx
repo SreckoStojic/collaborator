@@ -22,6 +22,7 @@ import Projects from '@pages/Projects';
 import ErrorPage from '@pages/ErrorPage';
 import ErrorBoundary from '@components/ErrorBoundary';
 import ShowOff from '@pages/ShowOff';
+import TutorialsWithUseReducer from '@pages/TutorialsWithUseReducer';
 
 function App() {
     return (
@@ -115,6 +116,10 @@ function App() {
                         <Route path="/testbb" element={<TestBB />} />
                         <Route path="/testss" element={<TestSS />} />
                         <Route path="/showoff" element={<ShowOff />} />
+                        <Route
+                            path="/tutorialsUR"
+                            element={<TutorialsWithUseReducer />}
+                        />
                         <Route path="/timesheet" element={<Timesheet />} />
                         <Route
                             path="/timesheet/:day/:month/:year"

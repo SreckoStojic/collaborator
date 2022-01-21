@@ -23,6 +23,8 @@ import ErrorPage from '@pages/ErrorPage';
 import ErrorBoundary from '@components/ErrorBoundary';
 import ShowOff from '@pages/ShowOff';
 import TutorialsWithUseReducer from '@pages/TutorialsWithUseReducer';
+import Form from '@pages/FormPractice';
+import FormPractice from '@pages/FormPractice';
 
 function App() {
     return (
@@ -116,6 +118,7 @@ function App() {
                         <Route path="/testbb" element={<TestBB />} />
                         <Route path="/testss" element={<TestSS />} />
                         <Route path="/showoff" element={<ShowOff />} />
+                        <Route path="/form" element={<FormPractice />} />
                         <Route
                             path="/tutorialsUR"
                             element={<TutorialsWithUseReducer />}

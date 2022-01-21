@@ -10,11 +10,13 @@ import './theme.module.css';
 import '@localization/i18n';
 
 ReactDOM.render(
-    <Suspense fallback={<div>Loading...</div>}>
-        <Provider store={store}>
-            <App />
-        </Provider>
-    </Suspense>,
+    <React.StrictMode>
+        <Suspense fallback={<div>Loading...</div>}>
+            <Provider store={store}>
+                <App />
+            </Provider>
+        </Suspense>
+    </React.StrictMode>,
     document.getElementById('root')
 );
 

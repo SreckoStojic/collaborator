@@ -6,11 +6,14 @@ import * as yup from 'yup';
 
 const formSchema = yup.object().shape({
     username: yup.string().required(),
-    email: yup.string().email().required(),
-    age: yup.number().positive().min(13).required(),
+    email: yup.string().email('Input must be valid email').required(),
+    age: yup.number().positive().min(13, '13+').max(50, '50+').required(),
     password: yup
         .string()
-        .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)
+        .matches(
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+            '8 characters minimum, 1 uppercase, 1 number'
+        )
         .required(),
     confirmPassword: yup.string().oneOf([yup.ref('password'), null]),
 });
@@ -40,7 +43,7 @@ function FormPractice() {
                         placeholder="Username..."
                         {...register('username')}
                     />
-                    <p> {errors.username && 'Username is required'} </p>
+                    <p> {errors.username?.message} </p>
                     <input
                         className={styles.input}
                         type="text"
@@ -48,25 +51,21 @@ function FormPractice() {
                         {...register('email')}
                     />
 
-                    <p> {errors.email && 'Not valid input email type'} </p>
+                    <p> {errors.email?.message} </p>
                     <input
                         className={styles.input}
                         type="number"
                         placeholder="Age..."
                         {...register('age')}
                     />
-                    <p> {errors.age && '13+'} </p>
+                    <p> {errors.age?.message} </p>
                     <input
                         className={styles.input}
                         type="text"
                         placeholder="Password..."
                         {...register('password')}
                     />
-                    <p>
-                        {' '}
-                        {errors.password &&
-                            '8 characters minimum, 1 uppercase, 1 number'}{' '}
-                    </p>
+                    <p>{errors.password?.message}</p>
                     <input
                         className={styles.input}
                         type="text"
